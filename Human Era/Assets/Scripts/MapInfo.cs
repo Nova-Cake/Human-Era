@@ -6,9 +6,10 @@ public class MapInfo : MonoBehaviour
 {
     public Texture2D map;
     public GameObject mapSprite;
+
     public int pixelsPerUnit;
     public GameObject debugCube;
 
-    public MapMaker mapMaker;
-    public MapLoading mapLoading;
+    public TerritoryGenerator territoryGenerator;
+    public SpriteLoader spriteLoader;
 }

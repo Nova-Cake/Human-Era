@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapLoading : MonoBehaviour
+public class SpriteLoader : MonoBehaviour
 {
     MapInfo mapInfo;
     Texture2D map;
@@ -17,7 +17,6 @@ public class MapLoading : MonoBehaviour
     [Range(0, 255)]
     byte mapTransparency;
 
-    [SerializeField]
     float pixelsPerUnit;
 
     bool updateMap;
@@ -83,10 +82,9 @@ public class MapLoading : MonoBehaviour
                 int x = Mathf.FloorToInt(hitPoint.x * pixelsPerUnit) + (map.width / 2);
                 int y = Mathf.FloorToInt(hitPoint.y * pixelsPerUnit) + (map.height / 2);
 
-                Territory territory = mapInfo.mapMaker.FromPixel(x, y);
+                Territory territory = mapInfo.territoryGenerator.FromPixel(x, y);
                 Vector3 position = territory.position;
-
-                map.Apply();
+                Debug.Log(territory);
             }
         }
 

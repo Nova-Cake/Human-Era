@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Territory
 {
-    string nameID;
-    Color32 color;
-    int id;
+    public string name;
+    public Color32 color;
+    public int id;
     public List<(int, int)> pixels = new List<(int, int)>();
     public Vector2 position;
 
     public Territory(int id, Color32 color, string name)
     {
-        this.nameID = name;
+        this.name = name;
         this.color = color;
         this.id = id;
     }
@@ -32,7 +32,6 @@ public class Territory
         y /= pixels.Count;
 
         mapInfo.map.SetPixel(x, y, new Color32(color.r, color.g, color.b, 25));
-        Debug.Log(this);
         mapInfo.map.Apply();
 
         float posX = (x / mapInfo.pixelsPerUnit) - ( ( mapInfo.map.width / mapInfo.pixelsPerUnit) / 2);
@@ -43,6 +42,6 @@ public class Territory
 
     public override string ToString()
     {
-        return $"{nameID}({id})";
+        return $"{name}({id})";
     }
 }
